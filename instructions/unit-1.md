@@ -13,7 +13,7 @@ You will be working with a team of three or four people to create a mockup of an
 1. Have one member of your team create a new Project on Tracker.
   1. Click the settings button (it looks like a little gear) and go to the Members tab.
   1. Add the members of your team to the project.
-  1. Click the Import tab and upload the [Tracker CSV](./pivotal/pivotal-stories.csv).
+  1. Click the Import tab and upload the [Tracker CSV](../pivotal/unit-1.csv).
 1. Have one member of your team create a new repository on Github for your project.
   1. Add the members of your team to the repository.
   1. As a team, discuss your workflow. Will you require PRs? Different branches?

@@ -1,6 +1,4 @@
-const inventory = require('./data')
-
-const cardTemplate = ({img, title, description, stars }) => {
+const cardTemplate = ({img, title, description, price, category, stars }) => {
     return `
       <div class="card m-3 border" style="min-width: 30%; max-width: 20%;">
         <div style="height: 150px; overflow: hidden;">
@@ -9,14 +7,20 @@ const cardTemplate = ({img, title, description, stars }) => {
         <div class="card-body">
           <h5 class="card-title">${title}</h5>
           <p>${description}</p>
+          <p><strong>$${price}</strong></p>
         </div>
         <div class="card-footer text-muted">
-          Rated: <strong>${stars} STARS</strong>
+            CATEGORY: ${category}
+            Rated: <strong>${stars} STARS</strong>
         </div>
       </div>
     `
   }
 
+  const generateCards = (trees) => {
+    return trees.map(tree => cardTemplate(tree));
+
+}
   const rowTemplate = (item) => {
     return `
       <div class="row">
@@ -29,16 +33,13 @@ const cardTemplate = ({img, title, description, stars }) => {
     `
   }
 
-  const cards = inventory.map( tree => cardTemplate(tree));
-  
   const render = (container, products) => {
-
-    const productsHTML = products.map(inventory.cardTemplate).join('')
-    container.innerHTML = rowTemplate(productsHTML)
+    const cards = generateCards(products);
+    const cardRow = rowTemplate(cards.join('\n'));
+    container.innerHTML = cardRow;
 }
 
 module.exports = {
-  template,
   render,
-  cards
+  generateCards
 }

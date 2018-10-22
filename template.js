@@ -17,10 +17,14 @@ const cardTemplate = ({img, title, description, price, category, stars }) => {
     `
   }
 
-  const generateCards = (trees) => {
-    return trees.map(tree => cardTemplate(tree));
+  const generateCards = (trees, num) => {
+      let cardList = [];
+          for (let i = 0; i < num; i++) {
+          cardList.push(cardTemplate(trees[i]))
+          }
+      return cardList
+    }
 
-}
   const rowTemplate = (item) => {
     return `
       <div class="row">
@@ -33,12 +37,11 @@ const cardTemplate = ({img, title, description, price, category, stars }) => {
     `
   }
 
-  const render = (container, products) => {
-    const cards = generateCards(products);
+  const render = (container, products, num) => {
+    const cards = generateCards(products, num);
     const cardRow = rowTemplate(cards.join('\n'));
     container.innerHTML = cardRow;
 }
-
 module.exports = {
   render,
   generateCards

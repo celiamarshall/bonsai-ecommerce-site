@@ -17,10 +17,10 @@ const cardTemplate = ({img, title, description, price, category, stars }) => {
     `
   }
 
-  const generateCards = (trees, num) => {
+  const generateCards = (trees, num, cat = null, price = null) => {
       let cardList = [];
           for (let i = 0; i < num; i++) {
-          cardList.push(cardTemplate(trees[i]))
+                  cardList.push(cardTemplate(trees[i]))
           }
       return cardList
     }

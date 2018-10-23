@@ -3,7 +3,7 @@ const inventory = [
       title: 'Gensing Grafted Ficus',
       img: 'https://www.flowerbud.com/sites/default/files/flowers/ggf_0.png',
       description: 'New to the Bonsai world?  Our Gensing Grafted Ficus Bonsai Tree is perfect for beginners.  It is an indoor Bonsai that does well in any light condition. ',
-      price: 25.99,
+      price: 24.99,
       category: 'Beginner',
       stars: 3
     },

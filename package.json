@@ -4,7 +4,10 @@
   "description": "https://trello.com/invite/b/ySYXQDkB/06b72818038409aeb98aa2d3112b5f1f/bonsai",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev-server": "live-server .",
+    "build": "browserify main.js -o bundle.js",
+    "watch": "watchify main.js -o bundle.js",
+    "dev": "run-all \"npm run watch\" \"npm run dev-server\""
   },
   "repository": {
     "type": "git",
@@ -16,10 +19,11 @@
     "url": "https://github.com/celiamarshall/bonsai-ecommerce-site/issues"
   },
   "homepage": "https://github.com/celiamarshall/bonsai-ecommerce-site#readme",
+  "dependencies": {},
   "devDependencies": {
-    "live-server": "^1.2.0"
-  },
-  "dependencies": {
-    "live-server": "^1.2.0"
+    "browserify": "^16.2.3",
+    "live-server": "^1.2.0",
+    "run-all": "^1.0.1",
+    "watchify": "^3.11.0"
   }
 }

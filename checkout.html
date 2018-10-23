@@ -5,11 +5,149 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./stylecheck.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <script src="main.js"></script>
 </head>
 <body>
-    
+    <div class="container-flex">
+        <div class="row pmt">
+            <div id="paymentForms" class="col-7">
+                <p>Shipping Information</p>
+                <div id="shipform">
+                <form id="shippingForm">
+                    <label for="shipName">Name</label>
+                    <input type="text" id="shipName" required><br>
+                    <label for="shipAdd1">Address1</label>
+                    <input type="text" id="shipAdd1" required><br>
+                    <label for="shipAdd2">Address2</label>
+                    <input type="text" id="shipAdd2" required><br>
+                    <div class="cityStateZip">
+                    <label for="shipCity">City</label>
+                    <input type="text" id="shipCity" required><br>
+                    <label for="shipState">State</label>
+                    <input type="text" id="shipState" required><br>
+                    <label for="shipZip">Zip</label>
+                    <input type="text" id="shipZip" required><br>
+                    </div>
+                    <label for="shipEmail">E-Mail</label>
+                    <input type="email" id="shipEmail" required><br>
+                    <label for="copyToBilling">Same as billing info?</label>
+                    <input type="checkbox" id="copyToBilling">
+                </form>
+            </div>
+                <p>Billing Information</p>
+                <div id="billform">
+                <form id="billingForm">
+                    <label for="billName">Name</label>
+                    <input type="text" id="billName" required><br>
+                    <label for="billName">Address1</label>
+                    <input type="text" id="billAdd1" required><br>
+                    <label for="billName">Address2</label>
+                    <input type="text" id="billAdd2" required><br>
+                    <div class="cityStateZip">
+                    <label for="billName">City</label>
+                    <input type="text" id="billCity" required><br>
+                    <label for="billName">State</label>
+                    <input type="text" id="billState" required><br>
+                    <label for="billName">Zip</label>
+                    <input type="text" id="billZip" required><br>
+                </div>
+                    <label for="billName">E-Mail</label>
+                    <input type="email" id="billEmail" required>
+                </form>
+            </div>
+        </div>
+        <div id="creditColumn" class="col-5">
+            <div class="row creditRow">
+            <div id="credit">
+                <img class="creditImage" src="creditCard.jpg">
+            </div>
+        </div>
+            <div class="row creditFields">
+            
+                <form class="creditCard">
+                    <label>Name on Card</label>
+                    <input type="text" class="name" placeholder="John Smith"/>
+                    <label>Card Number</label>
+                    <input type="text" class="number" maxlength="16" placeholder="XXXXXXXXXXXXXXXX"/>
+                    <div class="column">
+                        <label>CVV</label>
+                        <input type="text" class="cvv" maxlength="3" placeholder="XXX"/>
+                    </div>
+                    <div class="column">
+                        <label>Expiration Date</label>
+                        <input type="text" id="datepicker" placeholder="mm/yy">
+                    </div>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="container-fluid receiptContainer">
+        <div class="row">
+            <div class="col-3 cartImage">
+                    <img class="card-img-top" id="checkoutCardImage" src="https://previews.123rf.com/images/iamnee/iamnee1310/iamnee131000152/22827365-a-shopping-cart-full-with-beautiful-bonsai-trees-in-a-flowerpot-for-garden-decoration.jpg" alt="Card image cap">
+
+            </div>
+                <div class="col-3 boughtItems">
+                    <div class="row boughtItemsRow">
+                        <form id="itemsForm">
+                            <input type="text" class="form-control" placeholder="Item1">
+                            <input type="text" class="form-control" placeholder="Item2">
+                            <input type="text" class="form-control" placeholder="Item3">
+                            <input type="text" class="form-control" placeholder="Item4">
+                            <input type="text" class="form-control" placeholder="Item5">
+                        </form> 
+                        </div>
+                    </div>
+            <div class="col-4">
+                <div class="row pricesRow">
+                    <form id="pricesForm">
+                        <input type="text" class="form-control priceBox" placeholder="Item1price">
+                        <input type="text" class="form-control priceBox" placeholder="Item2price">
+                        <input type="text" class="form-control priceBox" placeholder="Item3price">
+                        <input type="text" class="form-control priceBox" placeholder="Item4price">
+                        <input type="text" class="form-control priceBox" placeholder="Item5price">
+                    </form>
+                </div>
+                    
+            </div>
+            <div class="col-2 totalWindow">
+                <div class="row totalRow">
+                    <p class="total">Total: </p>
+                </div>
+            </div>
+                    
+            
+        </div>
+    </div>
+    <div class="container recentlyViewed">
+            <p id="recentTitle">RECENTLY VIEWED</p>
+            <div class="row recentlyViewedRow">
+                
+            <div class="col-2" id="recentItem">
+            <div id="recent1"></div>
+            </div>
+
+            <div class="col-2" id="recentItem">
+                <div id="recent2"></div>
+            </div>
+
+            <div class="col-2" id="recentItem">
+                <div id="recent3"></div>
+            </div>
+
+            <div class="col-2" id="recentItem">
+                <div id="recent4"></div>
+            </div>
+
+            <div class="col-2" id="recentItem">
+                <div id="recent5"></div>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="./scriptcheck.js"></script>
 </html>

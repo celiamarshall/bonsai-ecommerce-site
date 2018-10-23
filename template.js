@@ -10,14 +10,17 @@ const cardTemplate = ({img, title, description, price, category, stars }) => {
           <p><strong>$${price}</strong></p>
         </div>
         <div class="card-footer text-muted">
-            CATEGORY: ${category}
-            Rated: <strong>${stars} STARS</strong>
+        <button type="button" class="btn btn-secondary">Add To Cart</button>
         </div>
+        <div class="card-footer text-muted">
+        <p class = "productInfo">RATED: <strong>${stars} STARS</strong></p>
+        <p class = "productInfo">CATEGORY: ${category}</p>
+    </div>
       </div>
     `
   }
 
-  const generateCards = (trees, num, cat = null, price = null) => {
+  const generateCards = (trees, num) => {
       let cardList = [];
           for (let i = 0; i < num; i++) {
                   cardList.push(cardTemplate(trees[i]))
@@ -29,20 +32,19 @@ const cardTemplate = ({img, title, description, price, category, stars }) => {
     return `
       <div class="row">
         <div class="col">
-          <div class="card-group justify-content-around">
+          <div class="card-deck justify-content-around">
             ${item}
           </div>
         </div>
       </div>
     `
   }
-
+  
   const render = (container, products, num) => {
     const cards = generateCards(products, num);
     const cardRow = rowTemplate(cards.join('\n'));
     container.innerHTML = cardRow;
 }
 module.exports = {
-  render,
-  generateCards
+  render
 }

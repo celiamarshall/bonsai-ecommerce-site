@@ -1,4 +1,4 @@
-const cardTemplate = ({ img, title, description, price, category, stars }) => {
+const cardTemplate = ({ id, img, title, description, price, category, stars }) => {
   return `
       <div class="card m-3 border" style="min-width: 30%; max-width: 20%;">
         <div style="height: 150px; overflow: hidden;">
@@ -10,7 +10,7 @@ const cardTemplate = ({ img, title, description, price, category, stars }) => {
           <p><strong>$${price}</strong></p>
         </div>
         <div class="card-footer text-muted">
-        <button type="button" class="btn btn-secondary cart-button">Add To Cart</button>
+        <button data-id="${id}" type="button" class="btn btn-secondary cart-button">Add To Cart</button>
         </div>
         <div class="card-footer text-muted">
         <p class = "productInfo">RATED: <strong>${stars} STARS</strong></p>

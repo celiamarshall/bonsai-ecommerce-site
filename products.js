@@ -13,10 +13,22 @@ function init() {
     }
 
     const cartButtons = document.querySelectorAll('.cart-button')
+    const itemsInCart = document.querySelectorAll('.itemBox')
+    const pricesInCart = document.querySelectorAll('.priceBox')
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {}
+    
     for (button of cartButtons) {
         button.addEventListener('click', function (event) {
             newCartNumber()
             //add to checkout page
+            console.log(event.target.getAttribute('data-id'))
+            if (Object.keys(cartItems)) {
+                cartItems[event.target.getAttribute('data-id')] = true
+            }
+            else {
+                cartItems[event.target.getAttribute('data-id')] = true
+            }
+            localStorage.setItem('cartItems', JSON.stringify(cartItems))
         })
     }
 }

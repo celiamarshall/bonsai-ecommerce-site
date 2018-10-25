@@ -6,34 +6,14 @@ div {
     border:1px solid;
 }
 
-#recentItem {
-    border:1px solid;
-    height: 170px;
-}
-
 #checkoutCard {
     width:550px;
 }
 
-#checkoutCardImage {
-    height: 100%;
-    width: 120px;
-    justify-content:right;
+#cartImage {
+    height: 80%;
+    width: 190px;
 }
-
-#recentTitle {
-    justify-items: center;
-}
-
-.recentlyViewed {
-    justify-content:space-between;
-}
-
-.recentlyViewedRow {
-    justify-content:space-between;
-    margin: 6px;
-}
-
 #billform {
     display: flex;
     justify-content: center;
@@ -71,15 +51,7 @@ div {
 }
 .boughtItemsRow {
     height:100%;
-    
-}
-
-.pricesRow {
-    height:100%;
-}
-
-.totalRow {
-    height:35%;
+    width:100%;
 }
 
 /* //.receipt container */
@@ -98,20 +70,82 @@ div {
     height:100%;
 }
 
+.pricesRow {
+    height:100%;
+}
 /* ITEMS FORM */
 .itemsForm {
-    float:right;
+    width:100%;
 }
-
 
 /* PRICES FORM */
 
-.priceBox {
-    width:5%;
+#price {
+    width:60px;
+    margin-right:6px;
+}
+/* Total window and checkout button */
+.totalRow {
+    height:35%;
+}
+
+.checkoutButtonRow {
+    height: 65%;
+    width:100%;
+}
+
+.total {
+    font-size:50px;
 }
 
 /* ALL FORMS */
 .form-control {
+    margin-top:10px;
     margin-bottom: 10px;
     margin-left:5px;
 }
+
+.item {
+    display:flex;
+}
+
+#item {
+    width:280px;
+}
+/*RECENT ITEMS*/
+
+#recentItem {
+    border:1px solid;
+    height: 170px;
+}
+#phtree {
+    height:160px;;
+    width:80px;
+}
+
+#recentTitle {
+    justify-items: center;
+}
+
+.recentlyViewed {
+    justify-content:space-between;
+}
+
+.recentlyViewedRow {
+    justify-content:space-between;
+    margin: 6px;
+}
+
+/* BUTTONS */
+
+ .clearButton {
+     width:30px;
+     height: 25px;
+     margin-top:10px;
+     margin-bottom: 10px;
+     margin-left:5px;
+ }
+
+ .checkoutButton {
+     width:100%;
+ }

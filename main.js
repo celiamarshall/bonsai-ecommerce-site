@@ -12,7 +12,7 @@ if (cartCount) {
 
 if (window.location.pathname === '/') {
     const homePageProducts = document.querySelector('.newArrivals')
-    cardGenerator.render(homePageProducts, inventory, 3);
+    cardGenerator.render(homePageProducts, inventory, 3, "all");
 
     const cartButtons = document.querySelectorAll('.cart-button')
     for (button of cartButtons) {

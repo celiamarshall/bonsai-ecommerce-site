@@ -20,14 +20,6 @@ const cardTemplate = ({ id, img, title, description, price, category, stars }) =
     `
 }
 
-const generateCards = (trees, num) => {
-  let cardList = [];
-  for (let i = 0; i < num; i++) {
-    cardList.push(cardTemplate(trees[i]))
-  }
-  return cardList
-}
-
 const rowTemplate = (item) => {
   return `
       <div class="row">
@@ -40,11 +32,42 @@ const rowTemplate = (item) => {
     `
 }
 
-const render = (container, products, num) => {
-  const cards = generateCards(products, num);
+const generateList = (arr, filter) => {
+  const productList = [];
+  if (filter === 'all') {
+    return arr;
+  } else {
+
+    for (products of arr) {
+      if (products.category === filter) {
+        productList.push(products)
+      }
+    }
+    return productList;
+  }
+}
+
+const generateCards = (trees, num) => {
+  let cardList = [];
+  if (trees.length <= num) {
+    for (let i = 0; i < trees.length; i++) {
+      cardList.push(cardTemplate(trees[i]))
+    }
+  } else {
+  for (let i = 0; i < num; i++) {
+    cardList.push(cardTemplate(trees[i]))
+  }
+}
+  return cardList
+}
+
+const render = (container, products, num, filter) => {
+  const productList = generateList(products, filter);
+  const cards = generateCards(productList, num);
   const cardRow = rowTemplate(cards.join('\n'));
   container.innerHTML = cardRow;
 }
+
 module.exports = {
   render
 }

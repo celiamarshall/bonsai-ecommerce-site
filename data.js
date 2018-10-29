@@ -55,7 +55,7 @@ const inventory = [
     stars: 5,
     id: 6
   },
-]
+];
 
 module.exports = {
   inventory

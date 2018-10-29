@@ -1,9 +1,13 @@
 const cardGenerator = require('./template');
 const { inventory } = require('./data');
 
+
+
 function init() {
     const products = document.querySelector('.productListings');
-    cardGenerator.render(products, inventory, inventory.length);
+    const showBeginners = document.querySelector('.beginner')
+    
+    cardGenerator.render(products, inventory, inventory.length, 'all');
 
     const categories = document.querySelectorAll('.category')
     for (category of categories) {
@@ -31,6 +35,8 @@ function init() {
             localStorage.setItem('cartItems', JSON.stringify(cartItems))
         })
     }
+//showBeginners.addEventListener('click', cardGenerator.render(products, inventory, inventory.length, 'beginner'))
+
 }
 
 function newCartNumber() {

@@ -1,8 +1,6 @@
 const cardGenerator = require('./template');
 const { inventory } = require('./data');
 
-
-
 function init() {
     const products = document.querySelector('.productListings');
     const showBeginners = document.querySelector('.beginner')
@@ -35,7 +33,7 @@ function init() {
             localStorage.setItem('cartItems', JSON.stringify(cartItems))
         })
     }
-//showBeginners.addEventListener('click', cardGenerator.render(products, inventory, inventory.length, 'beginner'))
+showBeginners.addEventListener('click', cardGenerator.render(products, inventory, inventory.length, 'beginner'))
 
 }
 

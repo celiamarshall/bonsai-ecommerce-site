@@ -37,13 +37,24 @@ const generateList = (arr, filter) => {
   if (filter === 'all') {
     return arr;
   } else {
-
     for (products of arr) {
       if (products.category === filter) {
         productList.push(products)
       }
     }
     return productList;
+  }
+}
+
+const generateListPrice = (arr, filter) => {
+  const productList = [];
+  if (filter === 'all') {
+    return arr;
+  }
+  else {for (products of arr) {
+    if (products.price <= filter) {
+    productList.push(arr)
+    }}
   }
 }
 
@@ -62,10 +73,17 @@ const generateCards = (trees, num) => {
 }
 
 const render = (container, products, num, filter) => {
-  const productList = generateList(products, filter);
-  const cards = generateCards(productList, num);
-  const cardRow = rowTemplate(cards.join('\n'));
-  container.innerHTML = cardRow;
+  if (typeof filter === "number") {
+    const productList = generateListPrice(products, filter)
+    const cards = generateCards(productList, num);
+    const cardRow = rowTemplate(cards.join('\n'));
+    container.innerHTML = cardRow;
+  } else {
+    const productList = generateList(products, filter)
+    const cards = generateCards(productList, num);
+    const cardRow = rowTemplate(cards.join('\n'));
+    container.innerHTML = cardRow;
+  }
 }
 
 module.exports = {

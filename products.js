@@ -33,7 +33,7 @@ function init() {
             localStorage.setItem('cartItems', JSON.stringify(cartItems))
         })
     }
-showBeginners.addEventListener('click', cardGenerator.render(products, inventory, inventory.length, 'beginner'))
+showBeginners.addEventListener('click', () => cardGenerator.render(products, inventory, inventory.length, 'beginner'));
 
 }
 

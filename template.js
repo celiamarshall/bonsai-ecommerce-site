@@ -53,8 +53,10 @@ const generateListPrice = (arr, filter) => {
   }
   else {for (products of arr) {
     if (products.price <= filter) {
-    productList.push(arr)
-    }}
+    productList.push(products)
+    }
+  }
+  return productList;
   }
 }
 

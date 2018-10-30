@@ -46,18 +46,14 @@ const generateList = (arr, filter) => {
   }
 }
 
-const generateListPrice = (arr, filter) => {
+const generateListPrice = (arr, range) => {
   const productList = [];
-  if (filter === 'all') {
-    return arr;
-  }
-  else {for (products of arr) {
-    if (products.price <= filter) {
+  for (products of arr) {
+    if (products.price >= range[0] && products.price <= range[1]) {
     productList.push(products)
     }
   }
   return productList;
-  }
 }
 
 const generateCards = (trees, num) => {
@@ -75,7 +71,7 @@ const generateCards = (trees, num) => {
 }
 
 const render = (container, products, num, filter) => {
-  if (typeof filter === "number") {
+  if (typeof filter !== "string") {
     const productList = generateListPrice(products, filter);
     const cards = generateCards(productList, num);
     const cardRow = rowTemplate(cards.join('\n'));

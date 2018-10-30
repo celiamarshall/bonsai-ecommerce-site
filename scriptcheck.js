@@ -78,42 +78,42 @@ function checkoutFunction() {
 
     subButton2.addEventListener('click', giveCreditResult)
 
-function giveCreditResult() {
-    if (creditName.value.length > 0 &&
-        creditNumber.value.length === 16 &&
-        creditCVV.value.length === 3 &&
-        creditExpire.value.length === 5) {
-        alert("Thank you!")
-    } else {
-        alert("Please complete all credit card info before proceeding")
-    }
-};
+    function giveCreditResult() {
+        if (creditName.value.length > 0 &&
+            creditNumber.value.length === 16 &&
+            creditCVV.value.length === 3 &&
+            creditExpire.value.length === 5) {
+            alert("Thank you!")
+        } else {
+            alert("Please complete all credit card info before proceeding")
+        }
+    };
 
-//Recently viewed items, images and text (localstorage)
+    //Recently viewed items, images and text (localstorage)
 
-const recentItem1image = document.querySelector('#recent1image')
-const recentItem2image = document.querySelector('#recent2image')
-const recentItem3image = document.querySelector('#recent3image')
-const recentItem4image = document.querySelector('#recent4image')
-const recentItem5image = document.querySelector('#recent5image')
+    const recentItem1image = document.querySelector('#recent1image')
+    const recentItem2image = document.querySelector('#recent2image')
+    const recentItem3image = document.querySelector('#recent3image')
+    const recentItem4image = document.querySelector('#recent4image')
+    const recentItem5image = document.querySelector('#recent5image')
 
-recentItem1image.innerHTML = localStorage.getItem('recentImageFirst')
-recentItem2image.innerHTML = localStorage.getItem('recentImageSecond')
-recentItem3image.innerHTML = localStorage.getItem('recentImageThird')
-recentItem4image.innerHTML = localStorage.getItem('recentImageFourth')
-recentItem5image.innerHTML = localStorage.getItem('recentImageFifth')
+    recentItem1image.innerHTML = localStorage.getItem('recentImageFirst')
+    recentItem2image.innerHTML = localStorage.getItem('recentImageSecond')
+    recentItem3image.innerHTML = localStorage.getItem('recentImageThird')
+    recentItem4image.innerHTML = localStorage.getItem('recentImageFourth')
+    recentItem5image.innerHTML = localStorage.getItem('recentImageFifth')
 
-const recentItem1text = document.querySelector('#recent1text')
-const recentItem2text = document.querySelector('#recent2text')
-const recentItem3text = document.querySelector('#recent3text')
-const recentItem4text = document.querySelector('#recent4text')
-const recentItem5text = document.querySelector('#recent5text')
+    const recentItem1text = document.querySelector('#recent1text')
+    const recentItem2text = document.querySelector('#recent2text')
+    const recentItem3text = document.querySelector('#recent3text')
+    const recentItem4text = document.querySelector('#recent4text')
+    const recentItem5text = document.querySelector('#recent5text')
 
-recentItem1text.innerHTML = localStorage.getItem('recentTextFirst')
-recentItem2text.innerHTML = localStorage.getItem('recentTextSecond')
-recentItem3text.innerHTML = localStorage.getItem('recentTextThird')
-recentItem4text.innerHTML = localStorage.getItem('recentTextFourth')
-recentItem5text.innerHTML = localStorage.getItem('recentTextFifth')
+    recentItem1text.innerHTML = localStorage.getItem('recentTextFirst')
+    recentItem2text.innerHTML = localStorage.getItem('recentTextSecond')
+    recentItem3text.innerHTML = localStorage.getItem('recentTextThird')
+    recentItem4text.innerHTML = localStorage.getItem('recentTextFourth')
+    recentItem5text.innerHTML = localStorage.getItem('recentTextFifth')
 
     //Cart items
 
@@ -156,71 +156,71 @@ recentItem5text.innerHTML = localStorage.getItem('recentTextFifth')
     boughtItem6price.value = JSON.parse(localStorage.getItem('cartPrices'))[5] || 0
     boughtItem7price.value = JSON.parse(localStorage.getItem('cartPrices'))[6] || 0
     boughtItem8price.value = JSON.parse(localStorage.getItem('cartPrices'))[7] || 0
-  
-//Checkout button and total function
 
-const checkoutButton = document.querySelector('.checkoutButton')
-const total = document.querySelector('.total')
-const boughtItemsPrices = [boughtItem1price, boughtItem2price, boughtItem3price, boughtItem4price, boughtItem5price, boughtItem6price, boughtItem7price, boughtItem8price]
+    //Checkout button and total function
 
-checkoutButton.addEventListener('click', checkOut)
+    const checkoutButton = document.querySelector('.checkoutButton')
+    const total = document.querySelector('.total')
+    const boughtItemsPrices = [boughtItem1price, boughtItem2price, boughtItem3price, boughtItem4price, boughtItem5price, boughtItem6price, boughtItem7price, boughtItem8price]
 
-boughtItemsPrices.forEach(element => {
-    element.value = element.value || 0
-})
+    checkoutButton.addEventListener('click', checkOut)
 
-let sumOfAll =
-    parseFloat(boughtItem1price.value) +
-    parseFloat(boughtItem2price.value) +
-    parseFloat(boughtItem3price.value) +
-    parseFloat(boughtItem4price.value) +
-    parseFloat(boughtItem5price.value) +
-    parseFloat(boughtItem6price.value) +
-    parseFloat(boughtItem7price.value) +
-    parseFloat(boughtItem8price.value);
+    boughtItemsPrices.forEach(element => {
+        element.value = element.value || 0
+    })
 
-total.innerHTML = "Total: $" + sumOfAll
+    let sumOfAll =
+        parseFloat(boughtItem1price.value) +
+        parseFloat(boughtItem2price.value) +
+        parseFloat(boughtItem3price.value) +
+        parseFloat(boughtItem4price.value) +
+        parseFloat(boughtItem5price.value) +
+        parseFloat(boughtItem6price.value) +
+        parseFloat(boughtItem7price.value) +
+        parseFloat(boughtItem8price.value);
 
-function checkOut() {
+    total.innerHTML = "Total: $" + sumOfAll
 
-    if (name.value.length > 0 &&
-        address1.value.length > 0 &&
-        city.value.length > 0 &&
-        state.value.length > 0 &&
-        zip.value.length > 0 &&
-        email.value.length > 0 &&
-        billName.value.length > 0 &&
-        billAddress1.value.length > 0 &&
-        billCity.value.length > 0 &&
-        billState.value.length > 0 &&
-        billZip.value.length > 0 &&
-        billEmail.value.length > 0 &&
-        creditName.value.length > 0 &&
-        creditNumber.value.length === 16 &&
-        creditCVV.value.length === 3 &&
-        creditExpire.value.length === 5
-    ) {
-        alert("Your Order Is Complete! Thank you!");
+    function checkOut() {
 
-        allBilling.forEach(element => {
-            element.value = ""
-        });
-        allCredit.forEach(element => {
-            element.value = ""
-        });
-        boughtItems.forEach(element => {
-            element.value = ""
-        });
-        boughtItemsPrices.forEach(element => {
-            element.value = ""
-        });
-        allShipping.forEach(element => {
-            element.value = ""
-        });
+        if (name.value.length > 0 &&
+            address1.value.length > 0 &&
+            city.value.length > 0 &&
+            state.value.length > 0 &&
+            zip.value.length > 0 &&
+            email.value.length > 0 &&
+            billName.value.length > 0 &&
+            billAddress1.value.length > 0 &&
+            billCity.value.length > 0 &&
+            billState.value.length > 0 &&
+            billZip.value.length > 0 &&
+            billEmail.value.length > 0 &&
+            creditName.value.length > 0 &&
+            creditNumber.value.length === 16 &&
+            creditCVV.value.length === 3 &&
+            creditExpire.value.length === 5
+        ) {
+            alert("Your Order Is Complete! Thank you!");
 
-    } else {
-        alert("Please fill out all fields")
+            allBilling.forEach(element => {
+                element.value = ""
+            });
+            allCredit.forEach(element => {
+                element.value = ""
+            });
+            boughtItems.forEach(element => {
+                element.value = ""
+            });
+            boughtItemsPrices.forEach(element => {
+                element.value = ""
+            });
+            allShipping.forEach(element => {
+                element.value = ""
+            });
+
+        } else {
+            alert("Please fill out all fields")
+        }
     }
-}
 }
 module.exports = { checkoutFunction }

@@ -78,42 +78,42 @@ function checkoutFunction() {
 
     subButton2.addEventListener('click', giveCreditResult)
 
-function giveCreditResult() {
-    if (creditName.value.length > 0 &&
-        creditNumber.value.length === 16 &&
-        creditCVV.value.length === 3 &&
-        creditExpire.value.length === 5) {
-        alert("Thank you!")
-    } else {
-        alert("Please complete all credit card info before proceeding")
-    }
-};
+    function giveCreditResult() {
+        if (creditName.value.length > 0 &&
+            creditNumber.value.length === 16 &&
+            creditCVV.value.length === 3 &&
+            creditExpire.value.length === 5) {
+            alert("Thank you!")
+        } else {
+            alert("Please complete all credit card info before proceeding")
+        }
+    };
 
-//Recently viewed items, images and text (localstorage)
+    //Recently viewed items, images and text (localstorage)
 
-const recentItem1image = document.querySelector('#recent1image')
-const recentItem2image = document.querySelector('#recent2image')
-const recentItem3image = document.querySelector('#recent3image')
-const recentItem4image = document.querySelector('#recent4image')
-const recentItem5image = document.querySelector('#recent5image')
+    const recentItem1image = document.querySelector('#recent1image')
+    const recentItem2image = document.querySelector('#recent2image')
+    const recentItem3image = document.querySelector('#recent3image')
+    const recentItem4image = document.querySelector('#recent4image')
+    const recentItem5image = document.querySelector('#recent5image')
 
-recentItem1image.innerHTML = localStorage.getItem('recentImageFirst')
-recentItem2image.innerHTML = localStorage.getItem('recentImageSecond')
-recentItem3image.innerHTML = localStorage.getItem('recentImageThird')
-recentItem4image.innerHTML = localStorage.getItem('recentImageFourth')
-recentItem5image.innerHTML = localStorage.getItem('recentImageFifth')
+    recentItem1image.innerHTML = localStorage.getItem('recentImageFirst')
+    recentItem2image.innerHTML = localStorage.getItem('recentImageSecond')
+    recentItem3image.innerHTML = localStorage.getItem('recentImageThird')
+    recentItem4image.innerHTML = localStorage.getItem('recentImageFourth')
+    recentItem5image.innerHTML = localStorage.getItem('recentImageFifth')
 
-const recentItem1text = document.querySelector('#recent1text')
-const recentItem2text = document.querySelector('#recent2text')
-const recentItem3text = document.querySelector('#recent3text')
-const recentItem4text = document.querySelector('#recent4text')
-const recentItem5text = document.querySelector('#recent5text')
+    const recentItem1text = document.querySelector('#recent1text')
+    const recentItem2text = document.querySelector('#recent2text')
+    const recentItem3text = document.querySelector('#recent3text')
+    const recentItem4text = document.querySelector('#recent4text')
+    const recentItem5text = document.querySelector('#recent5text')
 
-recentItem1text.innerHTML = localStorage.getItem('recentTextFirst')
-recentItem2text.innerHTML = localStorage.getItem('recentTextSecond')
-recentItem3text.innerHTML = localStorage.getItem('recentTextThird')
-recentItem4text.innerHTML = localStorage.getItem('recentTextFourth')
-recentItem5text.innerHTML = localStorage.getItem('recentTextFifth')
+    recentItem1text.innerHTML = localStorage.getItem('recentTextFirst')
+    recentItem2text.innerHTML = localStorage.getItem('recentTextSecond')
+    recentItem3text.innerHTML = localStorage.getItem('recentTextThird')
+    recentItem4text.innerHTML = localStorage.getItem('recentTextFourth')
+    recentItem5text.innerHTML = localStorage.getItem('recentTextFifth')
 
     //Cart items
 
@@ -154,6 +154,7 @@ recentItem5text.innerHTML = localStorage.getItem('recentTextFifth')
     const boughtItem7price = document.querySelector('.boughtItem7price')
     const boughtItem8price = document.querySelector('.boughtItem8price')
 
+
     boughtItem1price.innerHTML = JSON.parse(localStorage.getItem('cartPrices'))[0] || 0
     boughtItem2price.innerHTML = JSON.parse(localStorage.getItem('cartPrices'))[1] || 0
     boughtItem3price.innerHTML = JSON.parse(localStorage.getItem('cartPrices'))[2] || 0
@@ -171,9 +172,9 @@ const boughtItemsPrices = [boughtItem1price, boughtItem2price, boughtItem3price,
 
 checkoutButton.addEventListener('click', checkOut)
 
-boughtItemsPrices.forEach(element => {
-    element.value = element.value || 0
-})
+// boughtItemsPrices.forEach(element => {
+//     element.value = element.value || 0
+// })
 
 let sumOfAll =
     parseFloat(boughtItem1price.innerHTML) +
@@ -256,4 +257,6 @@ function clearAndReplace (num) {
     populateItems()
 }
 }
+}
+
 module.exports = { checkoutFunction }

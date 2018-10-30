@@ -55,6 +55,24 @@ const inventory = [
     stars: 5,
     id: 6
   },
+  {
+    title: 'Miniature Golden Gate Ficus',
+    img: 'https://www.easternleaf.com/v/vspfiles/photos/801620-03-1.jpg',
+    description: 'Like many ficus bonsai trees, the Golden Gate Ficus Bonsai Tree or Taiwan Ficus Bonsai Tree can be kept both indoors and outdoors, and is also one of the most hardy species.',
+    price: 13.95,
+    category: 'Sale',
+    stars: 3,
+    id: 7
+  },
+  {
+    title: 'Japanese Maple',
+    img: 'https://www.easternleaf.com/v/vspfiles/photos/807850-03-1.jpg',
+    description: 'This unique variety of Japanese Maple is sometimes called a full moon maple and features a burnt-orange and gold shade when exposed to more sun.',
+    price: 18.95,
+    category: 'Sale',
+    stars: 4,
+    id: 8
+  }
 ]
 
 module.exports = {

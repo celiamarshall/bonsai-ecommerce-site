@@ -17,32 +17,13 @@ function init() {
     
     cardGenerator.render(products, inventory, inventory.length, 'all');
 
-    const categories = document.querySelectorAll('.category')
-    for (category of categories) {
-        category.addEventListener('click', function (event) {
-            //filterFunction(event.target.textContent)
-        })
-    }
-
-    const cartButtons = document.querySelectorAll('.cart-button')
-    const itemsInCart = document.querySelectorAll('.itemBox')
-    const pricesInCart = document.querySelectorAll('.priceBox')
-    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {}
-    
-    for (button of cartButtons) {
-        button.addEventListener('click', function (event) {
-            newCartNumber()
-            //add to checkout page
-            console.log(event.target.getAttribute('data-id'))
-            if (Object.keys(cartItems)) {
-                cartItems[event.target.getAttribute('data-id')] = true
-            }
-            else {
-                cartItems[event.target.getAttribute('data-id')] = true
-            }
-            localStorage.setItem('cartItems', JSON.stringify(cartItems))
-        })
-    }
+//     const categories = document.querySelectorAll('.category')
+//     for (category of categories) {
+//         category.addEventListener('click', function (event) {
+//             //filterFunction(event.target.textContent)
+//         })
+//     }
+  
     //Event Listeners
     showAll.forEach(cell => cell.addEventListener("click", () => cardGenerator.render(products, inventory, inventory.length, 'all')));
     showBeginners.addEventListener('click', () => cardGenerator.render(products, inventory, inventory.length, 'Beginner'));
@@ -55,7 +36,7 @@ function init() {
     lessThan100.addEventListener('click', () => cardGenerator.render(products, inventory, inventory.length, [75,100]));
 
     
-
+    newCartItems()
 }
 
 function newCartNumber() {
@@ -72,4 +53,28 @@ function newCartNumber() {
     numberInCart.textContent = cartCount + ' Items'
 }
 
-module.exports = { init, newCartNumber }
+function newCartItems() {
+    const cartButtons = document.querySelectorAll('.cart-button')
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || []
+    let cartPrices = JSON.parse(localStorage.getItem('cartPrices')) || []
+    let cartImages = JSON.parse(localStorage.getItem('cartImages')) || []
+
+    for (button of cartButtons) {
+        button.addEventListener('click', function (event) {
+            newCartNumber()
+            //add partciular item to local storage
+            for (item of inventory) {
+                if (item.id === Number(event.target.getAttribute('data-id'))) {
+                    cartItems.push(item.title)
+                    cartPrices.push(item.price)
+                    cartImages.push(item.img)
+                }
+            }
+            localStorage.setItem('cartItems', JSON.stringify(cartItems))
+            localStorage.setItem('cartPrices', JSON.stringify(cartPrices))
+            localStorage.setItem('cartImages', JSON.stringify(cartImages))
+        })
+    }
+}
+
+module.exports = { init, newCartNumber, newCartItems }

@@ -2,8 +2,14 @@ const cardGenerator = require('./template');
 const { inventory } = require('./data');
 
 function init() {
+    const showAll = document.querySelector('.all');
     const products = document.querySelector('.productListings');
-    const showBeginners = document.querySelector('.beginner')
+    const showBeginners = document.querySelector('.beginner');
+    const showSpecialties = document.querySelector('.specialty');
+    const showFlowering = document.querySelector('.flowering');
+    const showSales = document.querySelector('.sale');
+    const lessThan25 = document.querySelector('.lessthan25');
+    
     
     cardGenerator.render(products, inventory, inventory.length, 'all');
 
@@ -33,7 +39,12 @@ function init() {
             localStorage.setItem('cartItems', JSON.stringify(cartItems))
         })
     }
-showBeginners.addEventListener('click', () => cardGenerator.render(products, inventory, inventory.length, 'beginner'));
+    showAll.addEventListener('click', () => cardGenerator.render(products, inventory, inventory.length, 'all'));    
+    showBeginners.addEventListener('click', () => cardGenerator.render(products, inventory, inventory.length, 'Beginner'));
+    showSpecialties.addEventListener('click', () => cardGenerator.render(products, inventory, inventory.length, 'Specialty'));
+    showFlowering.addEventListener('click', () => cardGenerator.render(products, inventory, inventory.length, 'Flowering'));
+    showSales.addEventListener('click', () => cardGenerator.render(products, inventory, inventory.length, 'Sale'));
+    lessThan25.addEventListener('click', () => cardGenerator.render(products, inventory, inventory.length, 25));
 
 }
 

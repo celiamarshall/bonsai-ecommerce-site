@@ -9,7 +9,6 @@ if (cartCount) {
     numberInCart.textContent = cartCount + ' Items'
 }
 
-
 if (window.location.pathname === '/') {
     const homePageProducts = document.querySelector('.newArrivals')
     cardGenerator.render(homePageProducts, inventory, 3, "all");

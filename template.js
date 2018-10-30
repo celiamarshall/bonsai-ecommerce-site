@@ -76,7 +76,7 @@ const generateCards = (trees, num) => {
 
 const render = (container, products, num, filter) => {
   if (typeof filter === "number") {
-    const productList = generateListPrice(products, filter)
+    const productList = generateListPrice(products, filter);
     const cards = generateCards(productList, num);
     const cardRow = rowTemplate(cards.join('\n'));
     container.innerHTML = cardRow;

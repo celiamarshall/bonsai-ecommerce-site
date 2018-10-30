@@ -78,25 +78,42 @@ function checkoutFunction() {
 
     subButton2.addEventListener('click', giveCreditResult)
 
-    function giveCreditResult() {
-        allCredit.forEach(element => {
-            element.value = ""
-        });
+function giveCreditResult() {
+    if (creditName.value.length > 0 &&
+        creditNumber.value.length === 16 &&
+        creditCVV.value.length === 3 &&
+        creditExpire.value.length === 5) {
+        alert("Thank you!")
+    } else {
+        alert("Please complete all credit card info before proceeding")
     }
+};
 
-    //Recently viewed items (localstorage)
+//Recently viewed items, images and text (localstorage)
 
-    const recentItem1 = document.querySelector('#recent1')
-    const recentItem2 = document.querySelector('#recent2')
-    const recentItem3 = document.querySelector('#recent3')
-    const recentItem4 = document.querySelector('#recent4')
-    const recentItem5 = document.querySelector('#recent5')
+const recentItem1image = document.querySelector('#recent1image')
+const recentItem2image = document.querySelector('#recent2image')
+const recentItem3image = document.querySelector('#recent3image')
+const recentItem4image = document.querySelector('#recent4image')
+const recentItem5image = document.querySelector('#recent5image')
 
-    recentItem1.innerHTML = localStorage.getItem('recentFirst')
-    recentItem2.innerHTML = localStorage.getItem('recentSecond')
-    recentItem3.innerHTML = localStorage.getItem('recentThird')
-    recentItem4.innerHTML = localStorage.getItem('recentFourth')
-    recentItem5.innerHTML = localStorage.getItem('recentFifth')
+recentItem1image.innerHTML = localStorage.getItem('recentImageFirst')
+recentItem2image.innerHTML = localStorage.getItem('recentImageSecond')
+recentItem3image.innerHTML = localStorage.getItem('recentImageThird')
+recentItem4image.innerHTML = localStorage.getItem('recentImageFourth')
+recentItem5image.innerHTML = localStorage.getItem('recentImageFifth')
+
+const recentItem1text = document.querySelector('#recent1text')
+const recentItem2text = document.querySelector('#recent2text')
+const recentItem3text = document.querySelector('#recent3text')
+const recentItem4text = document.querySelector('#recent4text')
+const recentItem5text = document.querySelector('#recent5text')
+
+recentItem1text.innerHTML = localStorage.getItem('recentTextFirst')
+recentItem2text.innerHTML = localStorage.getItem('recentTextSecond')
+recentItem3text.innerHTML = localStorage.getItem('recentTextThird')
+recentItem4text.innerHTML = localStorage.getItem('recentTextFourth')
+recentItem5text.innerHTML = localStorage.getItem('recentTextFifth')
 
     //Cart items
 
@@ -139,16 +156,20 @@ function checkoutFunction() {
     boughtItem6price.value = JSON.parse(localStorage.getItem('cartPrices'))[5] || 0
     boughtItem7price.value = JSON.parse(localStorage.getItem('cartPrices'))[6] || 0
     boughtItem8price.value = JSON.parse(localStorage.getItem('cartPrices'))[7] || 0
+  
+//Checkout button and total function
 
+const checkoutButton = document.querySelector('.checkoutButton')
+const total = document.querySelector('.total')
+const boughtItemsPrices = [boughtItem1price, boughtItem2price, boughtItem3price, boughtItem4price, boughtItem5price, boughtItem6price, boughtItem7price, boughtItem8price]
 
+checkoutButton.addEventListener('click', checkOut)
 
-    //Checkout button and total function
+boughtItemsPrices.forEach(element => {
+    element.value = element.value || 0
+})
 
-    const checkoutButton = document.querySelector('.checkoutButton')
-    const total = document.querySelector('.total')
-    const boughtItemsPrices = [boughtItem1price, boughtItem2price, boughtItem3price, boughtItem4price, boughtItem5price, boughtItem6price, boughtItem7price, boughtItem8price]
-
-    let sumOfAll =
+let sumOfAll =
     parseFloat(boughtItem1price.value) +
     parseFloat(boughtItem2price.value) +
     parseFloat(boughtItem3price.value) +
@@ -158,17 +179,28 @@ function checkoutFunction() {
     parseFloat(boughtItem7price.value) +
     parseFloat(boughtItem8price.value);
 
-    total.innerHTML = "Total: $" + sumOfAll
-    checkoutButton.addEventListener('click', checkOut)
+total.innerHTML = "Total: $" + sumOfAll
 
-    function checkOut() {
+function checkOut() {
 
-        boughtItemsPrices.forEach(element => {
-
-            element.value = element.value || 0
-        })
-
-
+    if (name.value.length > 0 &&
+        address1.value.length > 0 &&
+        city.value.length > 0 &&
+        state.value.length > 0 &&
+        zip.value.length > 0 &&
+        email.value.length > 0 &&
+        billName.value.length > 0 &&
+        billAddress1.value.length > 0 &&
+        billCity.value.length > 0 &&
+        billState.value.length > 0 &&
+        billZip.value.length > 0 &&
+        billEmail.value.length > 0 &&
+        creditName.value.length > 0 &&
+        creditNumber.value.length === 16 &&
+        creditCVV.value.length === 3 &&
+        creditExpire.value.length === 5
+    ) {
+        alert("Your Order Is Complete! Thank you!");
 
         allBilling.forEach(element => {
             element.value = ""
@@ -186,9 +218,9 @@ function checkoutFunction() {
             element.value = ""
         });
 
-        alert("SUCCESS")
+    } else {
+        alert("Please fill out all fields")
     }
-
 }
-
+}
 module.exports = { checkoutFunction }

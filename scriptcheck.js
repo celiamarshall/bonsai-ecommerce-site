@@ -115,20 +115,15 @@ function checkoutFunction() {
     recentItem4text.innerHTML = localStorage.getItem('recentTextFourth')
     recentItem5text.innerHTML = localStorage.getItem('recentTextFifth')
 
+
+
+    //Cart items, prices, and images from local storage
+
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || []
+    let cartPrices = JSON.parse(localStorage.getItem('cartPrices')) || []
+    let cartImages = JSON.parse(localStorage.getItem('cartImages')) || []
+
     //Cart items
-
-    function populateItems () {
-    boughtItem1.innerHTML = JSON.parse(localStorage.getItem('cartItems'))[0] || ''
-    boughtItem2.innerHTML = JSON.parse(localStorage.getItem('cartItems'))[1] || ''
-    boughtItem3.innerHTML = JSON.parse(localStorage.getItem('cartItems'))[2] || ''
-    boughtItem4.innerHTML = JSON.parse(localStorage.getItem('cartItems'))[3] || ''
-    boughtItem5.innerHTML = JSON.parse(localStorage.getItem('cartItems'))[4] || ''
-    boughtItem6.innerHTML = JSON.parse(localStorage.getItem('cartItems'))[5] || ''
-    boughtItem7.innerHTML = JSON.parse(localStorage.getItem('cartItems'))[6] || ''
-    boughtItem8.innerHTML = JSON.parse(localStorage.getItem('cartItems'))[7] || ''
-    }
-
-    populateItems();
 
     const boughtItem1 = document.querySelector('.boughtItem1')
     const boughtItem2 = document.querySelector('.boughtItem2')
@@ -139,7 +134,18 @@ function checkoutFunction() {
     const boughtItem7 = document.querySelector('.boughtItem7')
     const boughtItem8 = document.querySelector('.boughtItem8')
 
-    
+    function populateItems() {
+        boughtItem1.innerHTML = cartItems[0] || ''
+        boughtItem2.innerHTML = cartItems[1] || ''
+        boughtItem3.innerHTML = cartItems[2] || ''
+        boughtItem4.innerHTML = cartItems[3] || ''
+        boughtItem5.innerHTML = cartItems[4] || ''
+        boughtItem6.innerHTML = cartItems[5] || ''
+        boughtItem7.innerHTML = cartItems[6] || ''
+        boughtItem8.innerHTML = cartItems[7] || ''
+    }
+
+    populateItems();
 
     const boughtItems = [boughtItem1, boughtItem2, boughtItem3, boughtItem4, boughtItem5, boughtItem6, boughtItem7, boughtItem8]
 
@@ -155,108 +161,107 @@ function checkoutFunction() {
     const boughtItem8price = document.querySelector('.boughtItem8price')
 
 
-    boughtItem1price.innerHTML = JSON.parse(localStorage.getItem('cartPrices'))[0] || 0
-    boughtItem2price.innerHTML = JSON.parse(localStorage.getItem('cartPrices'))[1] || 0
-    boughtItem3price.innerHTML = JSON.parse(localStorage.getItem('cartPrices'))[2] || 0
-    boughtItem4price.innerHTML = JSON.parse(localStorage.getItem('cartPrices'))[3] || 0
-    boughtItem5price.innerHTML = JSON.parse(localStorage.getItem('cartPrices'))[4] || 0
-    boughtItem6price.innerHTML = JSON.parse(localStorage.getItem('cartPrices'))[5] || 0
-    boughtItem7price.innerHTML = JSON.parse(localStorage.getItem('cartPrices'))[6] || 0
-    boughtItem8price.innerHTML = JSON.parse(localStorage.getItem('cartPrices'))[7] || 0
-  
-//Checkout button and total function
+    boughtItem1price.innerHTML = cartPrices[0] || 0
+    boughtItem2price.innerHTML = cartPrices[1] || 0
+    boughtItem3price.innerHTML = cartPrices[2] || 0
+    boughtItem4price.innerHTML = cartPrices[3] || 0
+    boughtItem5price.innerHTML = cartPrices[4] || 0
+    boughtItem6price.innerHTML = cartPrices[5] || 0
+    boughtItem7price.innerHTML = cartPrices[6] || 0
+    boughtItem8price.innerHTML = cartPrices[7] || 0
 
-const checkoutButton = document.querySelector('.checkoutButton')
-const total = document.querySelector('.total')
-const boughtItemsPrices = [boughtItem1price, boughtItem2price, boughtItem3price, boughtItem4price, boughtItem5price, boughtItem6price, boughtItem7price, boughtItem8price]
+    //Checkout button and total function
 
-checkoutButton.addEventListener('click', checkOut)
+    const checkoutButton = document.querySelector('.checkoutButton')
+    const total = document.querySelector('.total')
+    const boughtItemsPrices = [boughtItem1price, boughtItem2price, boughtItem3price, boughtItem4price, boughtItem5price, boughtItem6price, boughtItem7price, boughtItem8price]
 
-// boughtItemsPrices.forEach(element => {
-//     element.value = element.value || 0
-// })
+    checkoutButton.addEventListener('click', checkOut)
 
-let sumOfAll =
-    parseFloat(boughtItem1price.innerHTML) +
-    parseFloat(boughtItem2price.innerHTML) +
-    parseFloat(boughtItem3price.innerHTML) +
-    parseFloat(boughtItem4price.innerHTML) +
-    parseFloat(boughtItem5price.innerHTML) +
-    parseFloat(boughtItem6price.innerHTML) +
-    parseFloat(boughtItem7price.innerHTML) +
-    parseFloat(boughtItem8price.innerHTML);
+    // boughtItemsPrices.forEach(element => {
+    //     element.value = element.value || 0
+    // })
 
-total.innerHTML = "Total: $" + sumOfAll
+    let sumOfAll =
+        parseFloat(boughtItem1price.innerHTML) +
+        parseFloat(boughtItem2price.innerHTML) +
+        parseFloat(boughtItem3price.innerHTML) +
+        parseFloat(boughtItem4price.innerHTML) +
+        parseFloat(boughtItem5price.innerHTML) +
+        parseFloat(boughtItem6price.innerHTML) +
+        parseFloat(boughtItem7price.innerHTML) +
+        parseFloat(boughtItem8price.innerHTML);
 
-function checkOut() {
+    total.innerHTML = "Total: $" + sumOfAll
 
-    if (name.value.length > 0 &&
-        address1.value.length > 0 &&
-        city.value.length > 0 &&
-        state.value.length > 0 &&
-        zip.value.length > 0 &&
-        email.value.length > 0 &&
-        billName.value.length > 0 &&
-        billAddress1.value.length > 0 &&
-        billCity.value.length > 0 &&
-        billState.value.length > 0 &&
-        billZip.value.length > 0 &&
-        billEmail.value.length > 0 &&
-        creditName.value.length > 0 &&
-        creditNumber.value.length === 16 &&
-        creditCVV.value.length === 3 &&
-        creditExpire.value.length === 5
-    ) {
-        alert("Your Order Is Complete! Thank you!");
+    function checkOut() {
 
-        allBilling.forEach(element => {
-            element.value = ""
-        });
-        allCredit.forEach(element => {
-            element.value = ""
-        });
-        boughtItems.forEach(element => {
-            element.value = ""
-        });
-        boughtItemsPrices.forEach(element => {
-            element.value = ""
-        });
-        allShipping.forEach(element => {
-            element.value = ""
-        });
+        if (name.value.length > 0 &&
+            address1.value.length > 0 &&
+            city.value.length > 0 &&
+            state.value.length > 0 &&
+            zip.value.length > 0 &&
+            email.value.length > 0 &&
+            billName.value.length > 0 &&
+            billAddress1.value.length > 0 &&
+            billCity.value.length > 0 &&
+            billState.value.length > 0 &&
+            billZip.value.length > 0 &&
+            billEmail.value.length > 0 &&
+            creditName.value.length > 0 &&
+            creditNumber.value.length === 16 &&
+            creditCVV.value.length === 3 &&
+            creditExpire.value.length === 5
+        ) {
+            alert("Your Order Is Complete! Thank you!");
 
-    } else {
-        alert("Please fill out all fields")
+            allBilling.forEach(element => {
+                element.value = ""
+            });
+            allCredit.forEach(element => {
+                element.value = ""
+            });
+            boughtItems.forEach(element => {
+                element.value = ""
+            });
+            boughtItemsPrices.forEach(element => {
+                element.value = ""
+            });
+            allShipping.forEach(element => {
+                element.value = ""
+            });
+
+        } else {
+            alert("Please fill out all fields")
+        }
     }
-}
 
-//Clear Buttons
+    //Clear Buttons
 
-const clear1 = document.querySelector('#clearItem1')
-const clear2 = document.querySelector('#clearItem2')
-const clear3 = document.querySelector('#clearItem3')
-const clear4 = document.querySelector('#clearItem4')
-const clear5 = document.querySelector('#clearItem5')
-const clear6 = document.querySelector('#clearItem6')
-const clear7 = document.querySelector('#clearItem7')
-const clear8 = document.querySelector('#clearItem8')
+    const clear1 = document.querySelector('#clearItem1')
+    const clear2 = document.querySelector('#clearItem2')
+    const clear3 = document.querySelector('#clearItem3')
+    const clear4 = document.querySelector('#clearItem4')
+    const clear5 = document.querySelector('#clearItem5')
+    const clear6 = document.querySelector('#clearItem6')
+    const clear7 = document.querySelector('#clearItem7')
+    const clear8 = document.querySelector('#clearItem8')
 
-clear1.addEventListener('click', () => clearAndReplace(0))
-clear2.addEventListener('click', () => clearAndReplace(1))
-clear3.addEventListener('click', () => clearAndReplace(2))
-clear4.addEventListener('click', () => clearAndReplace(3))
-clear5.addEventListener('click', () => clearAndReplace(4))
-clear6.addEventListener('click', () => clearAndReplace(5))
-clear7.addEventListener('click', () => clearAndReplace(6))
-clear8.addEventListener('click', () => clearAndReplace(7))
+    clear1.addEventListener('click', () => clearAndReplace(0))
+    clear2.addEventListener('click', () => clearAndReplace(1))
+    clear3.addEventListener('click', () => clearAndReplace(2))
+    clear4.addEventListener('click', () => clearAndReplace(3))
+    clear5.addEventListener('click', () => clearAndReplace(4))
+    clear6.addEventListener('click', () => clearAndReplace(5))
+    clear7.addEventListener('click', () => clearAndReplace(6))
+    clear8.addEventListener('click', () => clearAndReplace(7))
 
 
-function clearAndReplace (num) {
-    localStorage.removeItem('cartItems')[num]
-    localStorage.removeItem('cartPrices')[num]
-    populateItems()
-}
-}
+    // function clearAndReplace (num) {
+    //     localStorage.removeItem('cartItems')[num]
+    //     localStorage.removeItem('cartPrices')[num]
+    //     populateItems()
+    // }
 }
 
 module.exports = { checkoutFunction }

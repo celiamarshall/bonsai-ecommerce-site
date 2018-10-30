@@ -136,6 +136,14 @@ div {
     margin: 6px;
 }
 
+.recentImageRow {
+    height: 75%;
+}
+
+.recentTextRow {
+    height: 25%;
+}
+
 /* BUTTONS */
 
  .clearButton {

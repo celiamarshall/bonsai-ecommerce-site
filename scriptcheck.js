@@ -77,24 +77,42 @@ const allCredit = [creditName, creditNumber, creditCVV, creditExpire]
 subButton2.addEventListener('click', giveCreditResult)
 
 function giveCreditResult() {
-    allCredit.forEach(element => {
-        element.value = ""
-    });
-}
+    if (creditName.value.length > 0 &&
+        creditNumber.value.length === 16 &&
+        creditCVV.value.length === 3 &&
+        creditExpire.value.length === 5) {
+        alert("Thank you!")
+    } else {
+        alert("Please complete all credit card info before proceeding")
+    }
+};
 
-//Recently viewed items (localstorage)
+//Recently viewed items, images and text (localstorage)
 
-const recentItem1 = document.querySelector('#recent1')
-const recentItem2 = document.querySelector('#recent2')
-const recentItem3 = document.querySelector('#recent3')
-const recentItem4 = document.querySelector('#recent4')
-const recentItem5 = document.querySelector('#recent5')
+const recentItem1image = document.querySelector('#recent1image')
+const recentItem2image = document.querySelector('#recent2image')
+const recentItem3image = document.querySelector('#recent3image')
+const recentItem4image = document.querySelector('#recent4image')
+const recentItem5image = document.querySelector('#recent5image')
 
-recent1.innerHTML = localStorage.getItem('recentFirst')
-recent2.innerHTML = localStorage.getItem('recentSecond')
-recent3.innerHTML = localStorage.getItem('recentThird')
-recent4.innerHTML = localStorage.getItem('recentFourth')
-recent5.innerHTML = localStorage.getItem('recentFifth')
+recentItem1image.innerHTML = localStorage.getItem('recentImageFirst')
+recentItem2image.innerHTML = localStorage.getItem('recentImageSecond')
+recentItem3image.innerHTML = localStorage.getItem('recentImageThird')
+recentItem4image.innerHTML = localStorage.getItem('recentImageFourth')
+recentItem5image.innerHTML = localStorage.getItem('recentImageFifth')
+
+const recentItem1text = document.querySelector('#recent1text')
+const recentItem2text = document.querySelector('#recent2text')
+const recentItem3text = document.querySelector('#recent3text')
+const recentItem4text = document.querySelector('#recent4text')
+const recentItem5text = document.querySelector('#recent5text')
+
+recentItem1text.innerHTML = localStorage.getItem('recentTextFirst')
+recentItem2text.innerHTML = localStorage.getItem('recentTextSecond')
+recentItem3text.innerHTML = localStorage.getItem('recentTextThird')
+recentItem4text.innerHTML = localStorage.getItem('recentTextFourth')
+recentItem5text.innerHTML = localStorage.getItem('recentTextFifth')
+
 
 //Cart items
 
@@ -146,40 +164,58 @@ const boughtItemsPrices = [boughtItem1price, boughtItem2price, boughtItem3price,
 
 checkoutButton.addEventListener('click', checkOut)
 
+boughtItemsPrices.forEach(element => {
+    element.value = element.value || 0
+})
+
+let sumOfAll =
+    parseInt(boughtItem1price.value) +
+    parseInt(boughtItem2price.value) +
+    parseInt(boughtItem3price.value) +
+    parseInt(boughtItem4price.value) +
+    parseInt(boughtItem5price.value) +
+    parseInt(boughtItem6price.value) +
+    parseInt(boughtItem7price.value) +
+    parseInt(boughtItem8price.value);
+
+total.innerHTML = "Total: $" + sumOfAll
+
 function checkOut() {
 
-    boughtItemsPrices.forEach(element => {
-
-       element.value = element.value || 0
-    })
-
-    let sumOfAll =
-        parseInt(boughtItem1price.value) +
-        parseInt(boughtItem2price.value) +
-        parseInt(boughtItem3price.value) +
-        parseInt(boughtItem4price.value) +
-        parseInt(boughtItem5price.value) +
-        parseInt(boughtItem6price.value) +
-        parseInt(boughtItem7price.value) +
-        parseInt(boughtItem8price.value);
-
-    total.innerHTML = "Total: $" + sumOfAll
-
-    allBilling.forEach(element => {
-        element.value = ""
-    });
-    allCredit.forEach(element => {
-        element.value = ""
-    });
-    boughtItems.forEach(element => {
-        element.value = ""
-    });
-    boughtItemsPrices.forEach(element => {
-        element.value = ""
-    });
-    allShipping.forEach(element => {
-        element.value = ""
-    });
-
-    alert("SUCCESS")
+    if (name.value.length > 0 &&
+        address1.value.length > 0 &&
+        city.value.length > 0 &&
+        state.value.length > 0 &&
+        zip.value.length > 0 &&
+        email.value.length > 0 &&
+        billName.value.length > 0 &&
+        billAddress1.value.length > 0 &&
+        billCity.value.length > 0 &&
+        billState.value.length > 0 &&
+        billZip.value.length > 0 &&
+        billEmail.value.length > 0 &&
+        creditName.value.length > 0 &&
+        creditNumber.value.length === 16 &&
+        creditCVV.value.length === 3 &&
+        creditExpire.value.length === 5
+    ) {
+        alert("Your Order Is Complete! Thank you!");
+        allBilling.forEach(element => {
+            element.value = ""
+        });
+        allCredit.forEach(element => {
+            element.value = ""
+        });
+        boughtItems.forEach(element => {
+            element.value = ""
+        });
+        boughtItemsPrices.forEach(element => {
+            element.value = ""
+        });
+        allShipping.forEach(element => {
+            element.value = ""
+        });
+    } else {
+        alert("Please fill out all fields")
+    }
 }

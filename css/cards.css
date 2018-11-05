@@ -7,3 +7,10 @@
     clear: both;
     margin-bottom: 0px !important;
 }
+
+.productPic {
+    max-width: 200px;
+    max-height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}

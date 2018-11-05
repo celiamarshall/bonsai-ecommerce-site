@@ -27,10 +27,6 @@ function saleFooterTemplate ( {title, price} ) {
 
 const onSaleStrings = onSale.map( bonsai => saleFooterTemplate(bonsai))
 
-console.log(onSaleStrings)
-
-
-
 const onSaleHTML = onSaleStrings.join('')
 
 onSaleFooter.innerHTML = onSaleHTML

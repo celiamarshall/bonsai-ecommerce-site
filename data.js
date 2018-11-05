@@ -72,6 +72,15 @@ const inventory = [
     category: 'Sale',
     stars: 4,
     id: 8
+  },
+  {
+    title: 'Ponytail Palm',
+    img: 'https://cdn1.bigcommerce.com/server4100/6ys4nr/products/274/images/6656/PonyTail__52958.1447701073.190.285.jpg?c=2',
+    description: 'The Ponytail Palm is a native of Southeastern Mexico and despite its name, isn’t actually a Palm at all (it’s actually a Lily, we just haven’t had the heart to tell it).',
+    price: 21.95,
+    category: 'Sale',
+    stars: 5,
+    id: 9
   }
 ]
 

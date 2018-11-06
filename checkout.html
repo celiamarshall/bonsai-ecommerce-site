@@ -54,43 +54,45 @@
                 <div id="shipform">
                     <form id="shippingForm">
                         <label for="shipName">Name</label>
-                        <input type="text" id="shipName" required><br>
+                        <input type="text" id="shipName" required>
                         <label for="shipAdd1">Address1</label>
-                        <input type="text" id="shipAdd1" required>
+                        <input type="text" id="shipAdd1" required><br>
                         <label for="shipAdd2">Address2</label>
-                        <input type="text" id="shipAdd2"><br>
+                        <input type="text" id="shipAdd2">
                         <label for="shipCity">City</label>
-                        <input type="text" id="shipCity" required>
+                        <input type="text" id="shipCity" required><br>
                         <label for="shipState">State</label>
-                        <input type="text" id="shipState" required><br>
+                        <input type="text" id="shipState" required>
                         <label for="shipZip">Zip</label>
-                        <input type="text" id="shipZip" required>
-                        <label for="shipEmail">E-Mail</label>
+                        <input type="text" id="shipZip" required><br>
+                        <div id="shippingEmailField">
+                        <label id="shipEmail" for="shipEmail">E-Mail</label>
                         <input type="email" id="shipEmail" required>
+                    </div>
                     </form>
                 </div>
                 <h3 class="billTitle">Billing Information</h3>
                 <div id="billform">
                     <form id="billingForm">
                         <label for="billName">Name</label>
-                        <input class="info" type="text" id="billName" required><br>
+                        <input class="info" type="text" id="billName" required>
                         <label for="billName">Address1</label>
-                        <input class="info" type="text" id="billAdd1" required>
+                        <input class="info" type="text" id="billAdd1" required><br>
                         <label for="billName">Address2</label>
-                        <input class="info" type="text" id="billAdd2"><br>
+                        <input class="info" type="text" id="billAdd2">
                         <label for="billName">City</label>
-                        <input class="info" type="text" id="billCity" required>
+                        <input class="info" type="text" id="billCity" required><br>
                         <label for="billName">State</label>
-                        <input class="info" type="text" id="billState" required><br>
+                        <input class="info" type="text" id="billState" required>
                         <label for="billName">Zip</label>
-                        <input class="info" type="text" id="billZip" required>
+                        <input class="info" type="text" id="billZip" required><br>
                         <label for="billName">E-Mail</label>
-                        <input class="info" type="email" id="billEmail" required><br>
+                        <input class="info" type="email" id="billEmail" required>
                         <div class="shippingSubmit">
-                                <label for="copyToBilling">Same as billing info?</label>
-                                <input type="checkbox" id="copyToBilling">
-                                <button type="button" class="btn btn-primary infoSubmit">Submit</button>
-                            </div>
+                            <label for="copyToBilling">Same as billing info?</label>
+                            <input type="checkbox" id="copyToBilling">
+                            <button type="button" class="btn btn-primary infoSubmit">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -105,13 +107,13 @@
                 <div class="row creditFields">
                     <form class="creditCard">
                         <label>Name on Card</label>
-                        <input type="text" class="creditName" placeholder="John Smith" required /><br>
+                        <input type="text" class="creditName" required /><br>
                         <label>Card Number</label>
-                        <input type="text" class="creditNumber" maxlength="16" placeholder="XXXXXXXXXXXXXXXX" required /><br>
+                        <input type="text" class="creditNumber" maxlength="16" placeholder="XXXX-XXXX-XXXX-XXXX" required /><br>
                         <label>CVV</label>
-                        <input type="text" class="creditCVV" maxlength="3" placeholder="XXX" required /><br>
+                        <input type="text" class="creditCVV" maxlength="3" size="4" placeholder="XXX" required />
                         <label>Expiration Date</label>
-                        <input class="creditExpire" type="text" id="datepicker" placeholder="mm/yy" maxlength="5"
+                        <input class="creditExpire" type="text" id="datepicker" placeholder="mm/yy" size="5" maxlength="5"
                             required><br>
                         <button type="button" class="creditSubmit btn btn-primary">Submit</button>
 

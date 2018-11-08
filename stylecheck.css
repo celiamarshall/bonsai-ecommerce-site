@@ -1,3 +1,5 @@
+/*BODY*/
+
 /* BILLING SHIPPING AND CREDIT FORMS */
 #billform,
 #shipform {
@@ -6,6 +8,7 @@
     height: 40%;
     justify-content: center;
     font-size:25px;
+    color:#6A726A;
 }
 .billTitle,
 .shipTitle, 
@@ -15,6 +18,7 @@
     text-align:center;
     padding-top:5px;
     font-size:40px;
+    color:#6A726A;
 }
 .creditRow {
     height: 50%;
@@ -23,6 +27,7 @@
     height: 40%;
     justify-content:center;
     font-size:25px;
+    color:#6A726A;
 }
 .creditImage {
     height: 90%;
@@ -100,6 +105,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color:#6A726A;
 }
 .recentlyViewed {
     padding-top:100px;

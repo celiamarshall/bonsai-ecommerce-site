@@ -32,8 +32,12 @@
     width: 100%;
 }
 
-#shippingEmailField {
+#shipEmailLabel {
     margin-left:150px;
+}
+
+#shipEmail {
+    margin-left: 5px;
 }
 
 /* Receipt container */
@@ -111,6 +115,10 @@
 }
 .recentTextRow {
     height: 25%;
+}
+
+#recent1text, #recent2text, #recent3text, #recent4text {
+    margin-left: 15px;
 }
 
 /* BUTTONS */

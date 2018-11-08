@@ -1,2 +1,18 @@
 @import "./cards.css";
-@import "./stylecheck.css"
+@import "./stylecheck.css";
+
+body {
+  background-color: honeydew;
+}
+
+a {
+  color: #6A726A;
+}
+
+header {
+  color: #6A726A;
+}
+
+footer {
+  color: #6A726A;
+}

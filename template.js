@@ -5,14 +5,16 @@ const cardTemplate = ({ id, img, title, description, price, category, stars }) =
           <div class="card-body">
           <h5 class="card-title">${title}</h5>
           <p>${description}</p>
-          <p><strong>$${price}</strong></p>
+        </div>
+        <div class="card-footer priceBar">
+        <p class = "priceText">$${price}</p>
         </div>
         <div class="card-footer text-muted">
         <button data-id="${id}" type="button" class="btn btn-secondary cart-button">Add To Cart</button>
         </div>
-        <div class="card-footer text-muted">
+        <div class="card-footer dataBar">
         <p class = "productInfo">RATED: <strong>${stars} STARS</strong></p>
-        <p class = "productInfo">CATEGORY: ${category}</p>
+        <p class = "productInfo">CATEGORY: <strong>${category}</strong></p>
     </div>
       </div>
     `

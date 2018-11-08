@@ -8,6 +8,20 @@
     margin-bottom: 0px !important;
 }
 
+.priceBar {
+    background-color: #DAF7A6 !important;
+    height: 45px !important;
+}
+
+.dataBar {
+    background-color: #DAF7A6 !important;
+    height: 65px !important;
+}
+
+.priceText {
+    font-size: 1.3em !important;
+}
+
 .productPic {
     max-width: 200px;
     max-height: 200px;

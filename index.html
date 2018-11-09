@@ -10,6 +10,22 @@
   <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
   <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
   <script defer src="bundle.js"></script>
+  <script>
+  function validate() {
+    const email = document.querySelector('.email').value
+    const subscribeBtn = document.querySelector('.btn-success')
+  
+    if (formatted(email)) {
+      subscribeBtn.disabled = false
+    } else {
+      subscribeBtn.disabled = true
+    }
+  }</script>
+  <script>
+    function formatted(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email)
+  }</script>
 </head>
 
 <body>
@@ -92,11 +108,12 @@
             <form class="email-form-container">
               <div>
               </div>
-              <input required type="email" style="min-width: 300px" class="form-control" id="email" placeholder="Enter e-mail here."
+              
+              <input required type="email" style="min-width: 300px" class="form-control email" placeholder="Enter e-mail here."
                 onkeydown="validate()">
           </div>
           <div class="col">
-            <button id="submitbutton" type="submit" class="btn btn-success" disabled>Submit</button>
+            <button type="submit" class="btn btn-success" disabled>Submit</button>
           </div>
           </form>
 

@@ -33,6 +33,7 @@ footer {
     text-align:center;
     padding-top:5px;
     font-size:40px;
+    color: #6A726A;
 }
 .creditRow {
     height: 50%;
@@ -118,6 +119,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #6A726A;
 }
 .recentlyViewed {
     padding-top:100px;
@@ -135,7 +137,7 @@ footer {
     height: 25%;
 }
 
-#recent1text, #recent2text, #recent3text, #recent4text {
+#recent1text, #recent2text, #recent3text, #recent4text, #recent5text {
     margin-left: 15px;
 }
 

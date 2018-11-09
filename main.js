@@ -35,7 +35,7 @@ if (window.location.pathname === '/') {
     const homePageProducts = document.querySelector('.newArrivals')
     cardGenerator.render(homePageProducts, inventory, 3, "all");
     //products on the homepage can also be added to the cart
-    products.newCartItems()
+    cardGenerator.newCartItems()
 }
 
 else if (window.location.pathname === '/products.html') {

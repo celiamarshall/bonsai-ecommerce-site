@@ -12,6 +12,8 @@ header {
   
 footer {
     color: #6A726A;
+    background-color: white;
+    min-width: 100%
 }
 
 /* BILLING SHIPPING AND CREDIT FORMS */
